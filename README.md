@@ -13,6 +13,6 @@ This project demonstrate all the important react hooks and redux state managemen
 
 ## Mini Projects
 
-- Todo List
+- Todo List ✔
 - Threads (Sample thread)
 - Checkout Page
