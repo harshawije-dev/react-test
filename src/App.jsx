@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react";
-import reducer from "./utils/taskProcess";
+import reducer from "./features/taskProcess";
 import Task from "./components/Task";
 
 function App() {
