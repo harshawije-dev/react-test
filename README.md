@@ -5,14 +5,16 @@ This project demonstrate all the important react hooks and redux state managemen
 ## Hooks
 
 - useReducer ✔
-- useRef
+- useRef ✔
 - useCallback
 - useContext
 
-## React Redux
+## React Redux, Saga
 
 ## Mini Projects
 
 - Todo List ✔
+- Stopwatch
 - Threads (Sample thread)
 - Checkout Page
+- Chat App (Zing)
