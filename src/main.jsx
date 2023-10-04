@@ -6,6 +6,7 @@ import Root from "./routes/Root.jsx";
 import TodoList from "./views/TodoList.view";
 import ErrorPage from "./views/404.view";
 import App from "./App";
+import StopWatch from "./views/StopWatch";
 
 const route = createBrowserRouter([
   {
@@ -14,7 +15,8 @@ const route = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <App /> },
-      { path: "/projects/to-do", element: <TodoList /> },
+      { path: "/to-do", element: <TodoList /> },
+      { path: "/stop-watch", element: <StopWatch /> },
     ],
   },
 ]);

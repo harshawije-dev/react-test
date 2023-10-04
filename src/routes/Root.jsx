@@ -1,6 +1,22 @@
+import { useEffect, useRef } from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Root = () => {
+  const input = useRef();
+
+  useEffect(() => {
+    const key = (event) => {
+      event.key === "\\" ? input.current.focus() : null;
+      console.log(event);
+    };
+
+    addEventListener("keydown", key);
+
+    return () => {
+      removeEventListener("keydown", key);
+    };
+  }, []);
+
   return (
     <div className="w-full flex flex-row">
       <div className="w-[15%] h-screen overflow-clip bg-slate-100 px-0">
@@ -8,7 +24,7 @@ const Root = () => {
           <input
             type="search"
             name="search"
-            id="search"
+            ref={input}
             className="form-control"
           />
           <button
@@ -18,6 +34,13 @@ const Root = () => {
             Search
           </button>
         </div>
+        <div className="flex justify-center items-center">
+          <p className="mb-4 px-4 py-2 bg-slate-400 text-black font-xs font-semibold w-fit rounded-full capitalize">
+            search <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">ctrl</span>
+            + 
+            <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">\</span>
+          </p>
+        </div>
         <hr />
         <div className="w-auto flex flex-col gap-0 justify-center">
           <div className="sidebar-li">
@@ -26,12 +49,12 @@ const Root = () => {
             </Link>
           </div>
           <div className="sidebar-li">
-            <Link to={"/projects/to-do"}>
+            <Link to={"/to-do"}>
               <h5>Todo List app</h5>
             </Link>
           </div>
           <div className="sidebar-li">
-            <Link to={"/projects/stop-watch"}>
+            <Link to={"/stop-watch"}>
               <h5>Stop Watch</h5>
             </Link>
           </div>

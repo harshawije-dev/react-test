@@ -12,4 +12,7 @@
   .sidebar-li {
     @apply p-4 border-b-[1px] border-slate-200 hover:bg-slate-300 hover:shadow-md hover:border-transparent;
   }
+  .btn-dark {
+    @apply bg-slate-900 px-3 py-2 text-white text-sm rounded-md hover:bg-slate-50 hover:text-slate-950 hover:ring-1 hover:ring-slate-500;
+  }
 }
