@@ -7,7 +7,6 @@ const Root = () => {
   useEffect(() => {
     const key = (event) => {
       event.key === "\\" ? input.current.focus() : null;
-      console.log(event);
     };
 
     addEventListener("keydown", key);

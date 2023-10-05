@@ -2,22 +2,23 @@ import { useEffect, useRef, useState } from "react";
 
 const StopWatch = () => {
   const input = useRef();
+  const [time, setTime] = useState(0);
 
-  useEffect(() => {
-    const key = (event) => {
-      event.key === "\\" ? input.current.focus() : null;
-      console.log(event);
-    };
-
-    addEventListener("keydown", key);
-
-    return () => {
-      removeEventListener("keydown", key);
-    };
-  }, []);
+  const counter = () => {
+    input.current = setInterval(() => setTime((prev) => prev + 1), 1000);
+  };
 
   return (
+    <div>
+      <h2>Start timer</h2>
+      <h5>{time}</h5>
 
+      <hr />
+      <button type="button" onClick={counter} className="btn-dark">
+        Start
+      </button>
+      <button type="button">Stop</button>
+    </div>
   );
 };
 
