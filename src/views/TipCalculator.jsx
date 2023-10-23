@@ -1,23 +1,61 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { increment, reset } from "../features/slices/calculateSlice";
+import elementChecker from "../utils/arrElementChecker";
 
 const TipCalculator = () => {
+  const [subTotal, setSubtotal] = useState(0);
+  const [tip, setTip] = useState([]);
+
+  const amount = useSelector((state) => state.calc.value);
+  const dispatch = useDispatch();
+
+  useMemo(() => {
+    setTip([...tip, amount]);
+
+    // if (amount === 0) {
+    //   const sum = elementChecker(subTotal, tip.at(-1));
+    //   setSubtotal(() => sum);
+    // }
+
+    setSubtotal(amount + subTotal);
+  }, [amount]);
+
   return (
-    <div>
-      <h2>Tip Calculator</h2>
+    <div className="w-[75%]">
       <div>
-        <p>Total</p>
-        <h5></h5>
-        <label htmlFor="">Add tip</label>
-        <div>
-          <button
-            type="button"
-            className="bg-slate-300 px-4 py-2 rounded-lg flex justify-center items-center"
-          >
-            <p className="font-semibold text-xl">+</p>
-          </button>
-          <h4></h4>
-          <button type="button">-</button>
-        </div>
+        <h2>Tip Calculator</h2>
+        <p>{subTotal}</p>
+      </div>
+      <hr />
+      <div>
+        <input
+          className="form-control"
+          type="number"
+          onChange={(data) => setSubtotal(Number(data.target.value))}
+        />
+      </div>
+      <div>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            dispatch(increment());
+          }}
+        >
+          +
+        </button>
+        <h2>{amount}</h2>
+        <button
+          type="button"
+          className="btn"
+          onClick={() => {
+            dispatch(reset());
+            setSubtotal(() => subTotal - amount);
+          }}
+        >
+          -
+        </button>
       </div>
     </div>
   );

@@ -8,6 +8,8 @@ import ErrorPage from "./views/404.view";
 import App from "./App";
 import StopWatch from "./views/StopWatch";
 import TipCalculator from "./views/TipCalculator";
+import { Provider } from "react-redux";
+import store from "./features/store";
 
 const route = createBrowserRouter([
   {
@@ -25,6 +27,8 @@ const route = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={route} />
+    <Provider store={store}>
+      <RouterProvider router={route} />
+    </Provider>
   </React.StrictMode>
 );

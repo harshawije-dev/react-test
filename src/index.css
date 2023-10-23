@@ -15,7 +15,10 @@
   .btn-dark {
     @apply bg-slate-900 px-3 py-2 text-white text-sm rounded-md hover:bg-slate-50 hover:text-slate-950 hover:ring-1 hover:ring-slate-500;
   }
-  .title-one{
-    @apply font-semibold text-9xl uppercase
+  .title-one {
+    @apply font-semibold text-9xl uppercase;
+  }
+  .btn {
+    @apply bg-slate-300 px-4 py-2 rounded-lg flex justify-center items-center;
   }
 }

@@ -1,4 +1,6 @@
 export const ACTIONS = {
   CREATE: "CREATE",
   DELETE: "DELETE",
+  INCREMENT: "INCREMENT",
+  DECREMENT: "DECREMENT",
 };
