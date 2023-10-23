@@ -7,6 +7,7 @@ import TodoList from "./views/TodoList.view";
 import ErrorPage from "./views/404.view";
 import App from "./App";
 import StopWatch from "./views/StopWatch";
+import TipCalculator from "./views/TipCalculator";
 
 const route = createBrowserRouter([
   {
@@ -17,6 +18,7 @@ const route = createBrowserRouter([
       { index: true, element: <App /> },
       { path: "/to-do", element: <TodoList /> },
       { path: "/stop-watch", element: <StopWatch /> },
+      { path: "/tip-calculator", element: <TipCalculator /> },
     ],
   },
 ]);

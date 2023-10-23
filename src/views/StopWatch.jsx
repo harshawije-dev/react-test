@@ -1,10 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import {  useRef, useState } from "react";
 
 const StopWatch = () => {
   const input = useRef();
   const [time, setTime] = useState(0);
 
-  const counter = () => {
+  const startCounter = () => {
     input.current = setInterval(() => setTime((prev) => prev + 1), 1000);
   };
 
@@ -14,7 +14,7 @@ const StopWatch = () => {
       <h5>{time}</h5>
 
       <hr />
-      <button type="button" onClick={counter} className="btn-dark">
+      <button type="button" onClick={startCounter} className="btn-dark">
         Start
       </button>
       <button type="button">Stop</button>

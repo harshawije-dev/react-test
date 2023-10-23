@@ -57,6 +57,11 @@ const Root = () => {
               <h5>Stop Watch</h5>
             </Link>
           </div>
+          <div className="sidebar-li">
+            <Link to={"/tip-calculator"}>
+              <h5>Tip Calculator</h5>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="w-[85%] px-5 my-4" id="detail">
