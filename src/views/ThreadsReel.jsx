@@ -1,23 +1,62 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react";
+import React, { useMemo, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { createComment } from "../features/slices/threadSlice";
+import Tweet from "../components/Tweet";
 
 const ThreadsReel = () => {
+  const [comment, setComment] = useState();
+  const commentSelector = useSelector((state) => state.thread);
+  const dispatch = useDispatch();
+
+  useMemo(() => {
+    console.log(commentSelector);
+  }, [commentSelector]);
+
   return (
     <div className="w-full flex flex-col justify-center items-center sticky">
       <div className="w-[480px] h-[900px] px-8 py-3 ring-1 rounded-md ring-slate-400 relative">
         <div className="w-full flex justify-center items-center border-b-2">
-          <img src={"/public/threads_logo.jpg"} alt="logo" width={75} height={75}/>
-        </div>
-        <div className="flex flex-row w-full justify-between items-center gap-2 absolute bottom-2 left-2">
-          <input
-            type="text"
-            className="form-control"
-            height={20}
-            placeholder="What's on your mind..."
+          <img
+            src={"/public/threads_logo.jpg"}
+            alt="logo"
+            width={75}
+            height={75}
           />
-          <button type="submit" className="btn bg-black text-white uppercase">
-            post
-          </button>
+        </div>
+        <section className="h-[790px] flex flex-col gap-4">
+          <div className="overflow-hidden overflow-y-scroll my-3 px-1">
+            {commentSelector.length > 0 ? (
+              commentSelector.map(() => <Tweet key={0} />)
+            ) : (
+              <p>Nothing to show</p>
+            )}
+          </div>
+        </section>
+        <div className="flex flex-row w-full justify-between items-center gap-2 absolute bottom-2 left-2">
+          <form className="flex flex-row w-full justify-between items-center gap-2">
+            <input
+              type="text"
+              className="form-control"
+              height={20}
+              placeholder="What's on your mind..."
+              onChange={(data) =>
+                setComment({
+                  username: "@joerogan",
+                  avatar: "",
+                  comment: data.target.value,
+                  time: Date.now(),
+                })
+              }
+            />
+            <button
+              type="button"
+              onClick={() => dispatch(createComment(comment))}
+              className="btn bg-black text-white uppercase"
+            >
+              post
+            </button>
+          </form>
         </div>
       </div>
     </div>
