@@ -11,10 +11,12 @@ This project demonstrate all the important react hooks and redux state managemen
 
 ## React Redux, Saga
 
+- Redux Tool-Kit
+
 ## Mini Projects
 
 - Todo List ✔
-- Stopwatch
-- Threads (Sample thread)
-- Checkout Page
+- Stopwatch ✔
+- Threads (Sample thread) ✔
+- MobileWhere (Find any phone in Sri Lanka)
 - Chat App (Zing)
