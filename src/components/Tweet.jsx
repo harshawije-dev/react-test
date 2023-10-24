@@ -36,7 +36,9 @@ const Tweet = (props) => {
             {updatedOn} seconds ago
           </small>
         </article>
-        <p className="text-base font-normal text-black">{comment}</p>
+        <p className="text-base font-normal text-black">
+          {comment.substring(0, 100)}
+        </p>
       </div>
       <div className="flex flex-row mt-2 justify-start items-center gap-2">
         <button

@@ -10,7 +10,7 @@ const threadSlice = createSlice({
   initialState,
   reducers: {
     createComment: (state, action) => {
-      state.arr.push(action.payload);
+      state.threadsArray.push(action.payload);
     },
     addReactions: (state) => {
       state.value += 1;
