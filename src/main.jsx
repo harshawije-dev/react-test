@@ -10,6 +10,7 @@ import StopWatch from "./views/StopWatch";
 import TipCalculator from "./views/TipCalculator";
 import { Provider } from "react-redux";
 import store from "./features/store";
+import ThreadsReel from "./views/ThreadsReel";
 
 const route = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ const route = createBrowserRouter([
       { path: "/to-do", element: <TodoList /> },
       { path: "/stop-watch", element: <StopWatch /> },
       { path: "/tip-calculator", element: <TipCalculator /> },
+      { path: "/threads-reel", element: <ThreadsReel /> },
     ],
   },
 ]);

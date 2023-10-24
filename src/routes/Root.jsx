@@ -35,9 +35,14 @@ const Root = () => {
         </div>
         <div className="flex justify-center items-center">
           <p className="mb-4 px-4 py-2 bg-slate-400 text-black font-xs font-semibold w-fit rounded-full capitalize">
-            search <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">ctrl</span>
-            + 
-            <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">\</span>
+            search{" "}
+            <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">
+              ctrl
+            </span>
+            +
+            <span className="bg-slate-600 text-white px-3 py-1 rounded-sm">
+              \
+            </span>
           </p>
         </div>
         <hr />
@@ -60,6 +65,11 @@ const Root = () => {
           <div className="sidebar-li">
             <Link to={"/tip-calculator"}>
               <h5>Tip Calculator</h5>
+            </Link>
+          </div>
+          <div className="sidebar-li">
+            <Link to={"/threads-reel"}>
+              <h5>Threads Reel</h5>
             </Link>
           </div>
         </div>
