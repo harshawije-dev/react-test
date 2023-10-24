@@ -1,11 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const initialState = {
+  value: 0,
+  threadsArray: [],
+};
+
 const threadSlice = createSlice({
   name: "threads",
-  initialState: {
-    value: 0,
-    arr: [],
-  },
+  initialState,
   reducers: {
     createComment: (state, action) => {
       state.arr.push(action.payload);

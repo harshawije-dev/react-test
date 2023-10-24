@@ -9,7 +9,7 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
 const ThreadsReel = () => {
   const [comment, setComment] = useState();
-  const commentSelector = useSelector((state) => state.thread.arr);
+  const commentSelector = useSelector((state) => state.thread.threadsArray);
   const dispatch = useDispatch();
 
   const saveThread = (e) => {
