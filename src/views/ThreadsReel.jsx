@@ -3,15 +3,19 @@ import React, { useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createComment } from "../features/slices/threadSlice";
 import Tweet from "../components/Tweet";
+import guid from "../utils/uuid";
+import user, { getRandomAvatar } from "../utils/randomUsername";
+import { PaperAirplaneIcon } from "@heroicons/react/24/outline";
 
 const ThreadsReel = () => {
   const [comment, setComment] = useState();
-  const commentSelector = useSelector((state) => state.thread);
+  const commentSelector = useSelector((state) => state.thread.arr);
   const dispatch = useDispatch();
 
-  useMemo(() => {
-    console.log(commentSelector);
-  }, [commentSelector]);
+  const saveThread = (e) => {
+    e.preventDefault();
+    dispatch(createComment(comment));
+  };
 
   return (
     <div className="w-full flex flex-col justify-center items-center sticky">
@@ -27,7 +31,7 @@ const ThreadsReel = () => {
         <section className="h-[790px] flex flex-col gap-4">
           <div className="overflow-hidden overflow-y-scroll my-3 px-1">
             {commentSelector.length > 0 ? (
-              commentSelector.map(() => <Tweet key={0} />)
+              commentSelector.map((props) => <Tweet key={guid()} {...props} />)
             ) : (
               <p>Nothing to show</p>
             )}
@@ -42,19 +46,19 @@ const ThreadsReel = () => {
               placeholder="What's on your mind..."
               onChange={(data) =>
                 setComment({
-                  username: "@joerogan",
-                  avatar: "",
+                  username: user(),
+                  avatar: getRandomAvatar(),
                   comment: data.target.value,
                   time: Date.now(),
                 })
               }
             />
             <button
-              type="button"
-              onClick={() => dispatch(createComment(comment))}
+              type="submit"
+              onClick={(e) => saveThread(e)}
               className="btn bg-black text-white uppercase"
             >
-              post
+              <PaperAirplaneIcon className="svg-root text-white" />
             </button>
           </form>
         </div>
