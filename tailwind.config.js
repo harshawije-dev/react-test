@@ -2,7 +2,13 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "main-image": "url(/public/bg/skybox.jpg)",
+        "hero-image": "url(/public/bg/skybox2.jpg)",
+        "fallback-image": "url(/public/bg/skybox3.jpg)",
+      },
+    },
   },
   plugins: [],
 };

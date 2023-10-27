@@ -22,8 +22,8 @@ const ThreadsReel = () => {
   ));
 
   return (
-    <div className="w-full flex flex-col justify-center items-center sticky">
-      <div className="w-[480px] h-[900px] px-8 py-3 ring-1 rounded-md ring-slate-400 relative">
+    <div className="w-full flex flex-col justify-center items-center sticky bg-transparent">
+      <div className="w-[480px] h-[900px] px-8 py-3 ring-1 rounded-md ring-slate-400 relative bg-white">
         <div className="w-full flex justify-center items-center border-b-2">
           <img src={"/threads_logo.jpg"} alt="logo" width={75} height={75} />
         </div>

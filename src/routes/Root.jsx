@@ -17,7 +17,7 @@ const Root = () => {
   }, []);
 
   return (
-    <div className="w-full flex flex-row">
+    <div className="w-full flex flex-row bg-main-image bg-top bg-no-repeat">
       <div className="w-[15%] h-screen overflow-clip bg-slate-100 px-0">
         <div className="flex flex-row justify-around items-center gap-1 p-4">
           <input
